@@ -1,0 +1,11 @@
+#pragma once
+
+#define PANZI_VERSION_MAJOR 0
+#define PANZI_VERSION_MINOR 2
+#define PANZI_VERSION_PATCH 0
+#define PANZI_VERSION_STRING "0.2.0"
+
+#define PANZI_PLUGIN_NAME    "PANZI"
+#define PANZI_COMPANY_NAME   "TizWildin"
+#define PANZI_MANUFACTURER_CODE "TzWd"
+#define PANZI_PLUGIN_CODE       "PNZI"
