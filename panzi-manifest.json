@@ -1,0 +1,30 @@
+{
+  "id": "panzi",
+  "name": "PANZI",
+  "full_name": "Polyhedral Acoustic Network & Zero-delay Intensity Engine",
+  "version": "0.2.0-dev",
+  "status": "source_complete",
+  "author": "Gary Doman (GareBear99 / TizWildin)",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/GareBear99/PANZI-Panner",
+  "category": "spatial_audio",
+  "formats": ["VST3", "AU", "Standalone"],
+  "platforms": ["macOS", "Windows", "Linux"],
+  "channels_out": 8,
+  "framework": "JUCE 7.0.12",
+  "dsp_highlights": [
+    "Pre-baked 4D/5D acoustic vector field coefficients",
+    "4 polyhedral topologies: Diamond, Cube, Cylinder, Sphere",
+    "Simper SVF per-channel air absorption lowpass",
+    "RBJ biquad static boundary reflection shelf",
+    "Fractional circular delay line (sub-sample)",
+    "SPSC lock-free background baker → audio thread handoff",
+    "Zero heap allocation on audio thread",
+    "Equal-power LFO panner with symmetry warp and level detection"
+  ],
+  "paper": "PAPER.md",
+  "references": 15,
+  "related": ["FreeEQ8", "FreeVox8"],
+  "ecosystem": "https://garebear99.github.io/TizWildinEntertainmentHUB/",
+  "motto": "Great sound shouldn't cost anything"
+}

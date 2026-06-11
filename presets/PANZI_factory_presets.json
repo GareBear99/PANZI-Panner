@@ -1,0 +1,109 @@
+{
+  "version": "0.2.0",
+  "presets": [
+    {
+      "name": "Diamond Slow Sweep",
+      "description": "Gentle holographic rotation across full octahedron array. Starting point for room placement.",
+      "topology": 0,
+      "roomScale": 5.0,
+      "rate": 0.25,
+      "depth": 80.0,
+      "center": 0.0,
+      "symmetry": 0.0,
+      "smooth": 40.0,
+      "detect": 0.0,
+      "sensitivity": 50.0
+    },
+    {
+      "name": "Diamond Pulse",
+      "description": "Fast diamond sweep with level detection — spatial width breathes with the mix.",
+      "topology": 0,
+      "roomScale": 6.0,
+      "rate": 2.0,
+      "depth": 100.0,
+      "center": 0.0,
+      "symmetry": 30.0,
+      "smooth": 8.0,
+      "detect": 75.0,
+      "sensitivity": 65.0
+    },
+    {
+      "name": "Cube Corners",
+      "description": "8-corner cube topology at control-room scale. Uniform diagonal coverage for monitoring correction.",
+      "topology": 1,
+      "roomScale": 4.0,
+      "rate": 0.5,
+      "depth": 90.0,
+      "center": 0.0,
+      "symmetry": 0.0,
+      "smooth": 25.0,
+      "detect": 0.0,
+      "sensitivity": 50.0
+    },
+    {
+      "name": "Cube Tight",
+      "description": "Tight cube sweep with asymmetric linger. Good for dense mix textures.",
+      "topology": 1,
+      "roomScale": 3.0,
+      "rate": 3.5,
+      "depth": 70.0,
+      "center": 10.0,
+      "symmetry": 55.0,
+      "smooth": 5.0,
+      "detect": 40.0,
+      "sensitivity": 70.0
+    },
+    {
+      "name": "Cylinder Height Rise",
+      "description": "Slow vertical sweep between floor and ceiling rings. Dramatic height movement for pads and strings.",
+      "topology": 2,
+      "roomScale": 7.0,
+      "rate": 0.12,
+      "depth": 100.0,
+      "center": 0.0,
+      "symmetry": 0.0,
+      "smooth": 80.0,
+      "detect": 0.0,
+      "sensitivity": 50.0
+    },
+    {
+      "name": "Cylinder Orbit",
+      "description": "Medium-speed cylinder orbit with level detection and symmetry warp. Orbiting synth effect.",
+      "topology": 2,
+      "roomScale": 5.5,
+      "rate": 1.2,
+      "depth": 95.0,
+      "center": -5.0,
+      "symmetry": 20.0,
+      "smooth": 15.0,
+      "detect": 60.0,
+      "sensitivity": 55.0
+    },
+    {
+      "name": "Sphere Uniform",
+      "description": "Icosahedral sphere at large room scale. Maximum spatial uniformity — no dead zones at any LFO phase.",
+      "topology": 3,
+      "roomScale": 8.0,
+      "rate": 0.4,
+      "depth": 85.0,
+      "center": 0.0,
+      "symmetry": 0.0,
+      "smooth": 50.0,
+      "detect": 0.0,
+      "sensitivity": 50.0
+    },
+    {
+      "name": "Sphere Reactive",
+      "description": "Sphere topology with high detect and sensitivity. Spatial image expands and contracts with transients.",
+      "topology": 3,
+      "roomScale": 6.5,
+      "rate": 0.8,
+      "depth": 60.0,
+      "center": 0.0,
+      "symmetry": 10.0,
+      "smooth": 20.0,
+      "detect": 100.0,
+      "sensitivity": 80.0
+    }
+  ]
+}

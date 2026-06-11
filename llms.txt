@@ -1,0 +1,51 @@
+# PANZI — Polyhedral Acoustic Network & Zero-delay Intensity Engine
+
+## What this is
+PANZI is a free, open-source (GPL-3.0) multi-channel spatial audio plugin for VST3/AU.
+It maps 4D/5D acoustic vector field theory onto a pre-baked coefficient framework —
+delivering holographic polyhedral speaker imaging at the CPU footprint of a small
+parallel EQ bank.
+
+## How it works
+For each output channel in a user-selected polyhedral speaker topology (Diamond,
+Cube, Cylinder, Sphere), PANZI computes — once, on a background thread — the exact
+time delay, air absorption cutoff, inverse-distance gain, and directional intensity
+weight from the virtual source to that speaker. 48 raw floats are stored (8 channels
+× 6 values, alignas(64)). The audio thread executes:
+  Input → Circular delay → SVF lowpass → RBJ shelf → gain × panWeight → Output N
+
+## The 5D vector field mapping
+  Ix, Iy, Iz → dot-product pan weight per speaker (directional intensity flux)
+  P          → inverse-distance gain scalar (acoustic pressure law)
+  φ          → circular delay + SVF cutoff (time-of-flight + air absorption)
+
+## Architecture
+- Zero heap allocation on audio thread (all state pre-allocated in prepareToPlay)
+- SPSC lock-free atomic swap for background baker → audio thread handoff
+- Simper SVF (trapezoidal) for distance-modulated lowpass — stable under modulation
+- RBJ biquad for static boundary reflection shelving
+- Inherited from FreeAutoPanner: sine LFO, symmetry warp, equal-power pan law,
+  level-follower depth, SmoothedValue ramping
+
+## Author
+Gary Doman (GareBear99 / TizWildin)
+https://github.com/GareBear99
+https://garebear99.github.io/TizWildinEntertainmentHUB/
+
+## Ecosystem
+Part of the TizWildin plugin ecosystem (20+ free audio plugins).
+Related: FreeEQ8 (parametric EQ), FreeVox8 (spectral vocoder)
+
+## License
+GPL-3.0
+
+## Source
+https://github.com/GareBear99/PANZI-Panner
+
+## Academic paper
+PAPER.md in repo root — 15 references including Spors/Rabenstein/Ahrens (WFS),
+Meissner (5D intensity field), Kotus & Kostek, Bilbao, Simper SVF, RBJ cookbook,
+ISO 9613-1, ISO 354.
+
+## Version
+0.2.0-dev (source complete, binary certification pending)

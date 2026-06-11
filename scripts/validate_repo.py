@@ -31,6 +31,8 @@ required = [
     "CHANGELOG.md",
     "CONTRIBUTING.md",
     "LICENSE",
+    "llms.txt",
+    "panzi-manifest.json",
     "build_macos.sh",
     "build_linux.sh",
     "build_windows.ps1",
@@ -51,6 +53,7 @@ required = [
     "docs/PANZI_PRODUCTION_DOCS.md",
     "docs/ORIGIN_CONVERSATION.md",
     "docs/ARC_GOVERNANCE.md",
+    "presets/PANZI_factory_presets.json",
     "scripts/validate_repo.py",
 ]
 
@@ -74,6 +77,21 @@ config_ver = f"{config_major}.{config_minor}.{config_patch}" if all([config_majo
 
 check(cmake_ver == config_ver,
       f"Version mismatch: CMakeLists={cmake_ver}, Config.h={config_ver}")
+
+# Manifest version consistency
+manifest_ver = extract_version("panzi-manifest.json", r'"version":\s*"([^"]+)"')
+check(manifest_ver and (cmake_ver or "") in (manifest_ver or ""),
+      f"panzi-manifest.json version '{manifest_ver}' doesn't match CMake '{cmake_ver}'", warn=True)
+
+# Preset count
+try:
+    import json
+    with open(os.path.join(ROOT, "presets/PANZI_factory_presets.json")) as f:
+        presets_data = json.load(f)
+    count = len(presets_data.get("presets", []))
+    check(count >= 8, f"Fewer than 8 factory presets: found {count}")
+except Exception as e:
+    ERRORS.append(f"Could not read presets: {e}")
 
 # Safety checks
 check(not file_contains("Source/DSP/PanziEngine.h", "std::vector"),

@@ -447,13 +447,13 @@ Cost ≈ N × (delay_read + SVF_step + RBJ_step + multiply)
 At N=8, 44.1 kHz, stereo input: ~4.2 MFLOPs/s — negligible on any modern CPU.
 At N=32: ~16.8 MFLOPs/s — still well within a single core. SIMD vectorisation
 of the N-channel gain matrix across all 8 channels simultaneously is designated
-for v0.2.0 (SoA layout, AVX2).
+for v0.3.0 (SoA layout, AVX2).
 
 ---
 
 ## 7. Future Work
 
-### 7.1 SIMD Vectorisation of Gain Matrix (v0.2.0)
+### 7.1 SIMD Vectorisation of Gain Matrix (v0.3.0)
 
 Restructure `BakedCoefficients` from Array-of-Structures to Structure-of-Arrays
 (SoA) with 64-byte alignment. Process all 8-channel gains in a single AVX2

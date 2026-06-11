@@ -5,7 +5,9 @@
 - Renamed project from FreeAutoPanner → PANZI (Polyhedral Acoustic Network & Zero-delay Intensity engine)
 - Added `PAPER.md` — full academic DSP architecture paper: 5D vector field theory, pre-baking strategy, per-channel signal chain, real-time safety architecture, complete references
 - Added `docs/PANZI_DSP_ARCHITECTURE.md` — implementation spec: file structure, BakedCoefficients struct, PolyhedralTopology node tables, TopologyBaker, PanziEngine signal chain, parameter table, golden tests, ARC governance
-- Added `docs/PANZI_PRODUCTION_AUDIT.md`, `PANZI_RELEASE_CHECKLIST.md`, `PANZI_GOLDEN_TESTS.md`
+- Added `docs/PANZI_PRODUCTION_DOCS.md` — combined production audit, release checklist, and golden test suite
+- Added `docs/ARC_GOVERNANCE.md` — release governance rules
+- Added `docs/ORIGIN_CONVERSATION.md` — full verbatim Gemini pre-build design session with audit table
 - Defined four topology presets: Diamond (Octahedron), Cube, Cylinder, Sphere (icosahedron subset)
 - Defined 5D → DSP mapping: Ix/Iy/Iz → directional pan weight; P → inverse-distance gain; φ → delay + SVF cutoff
 - Architecture: background baker → SPSC atomic handoff → audio thread reads 48 raw floats

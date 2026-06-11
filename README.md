@@ -136,17 +136,24 @@ cmake --build build --config Release
 - [x] SmoothedValue parameter ramping
 - [x] APVTS session save/restore
 
-### v0.2.0 — PANZI Core (🔧 In Development)
-- [ ] Polyhedral topology node tables (Diamond, Cube, Cylinder, Sphere)
-- [ ] TopologyBaker: background-thread coefficient computation
-- [ ] SPSC atomic coefficient handoff
-- [ ] 8-channel output bus (REAPER 7.1 verified)
-- [ ] Per-channel: circular delay + SVF lowpass + RBJ shelf + gain matrix
-- [ ] Topology selector parameter
-- [ ] Room scale parameter
-- [ ] pluginval strictness-10 pass
+### v0.2.0 — PANZI Core (🔧 Source complete, binary certification pending)
+- [x] Polyhedral topology node tables (Diamond, Cube, Cylinder, Sphere)
+- [x] TopologyBaker: background-thread coefficient computation
+- [x] SPSC atomic coefficient handoff (CoeffHandoff)
+- [x] 8-channel output bus (JUCE 7.1 channel set)
+- [x] Per-channel: circular delay + SVF lowpass + RBJ shelf + gain matrix
+- [x] Topology selector parameter
+- [x] Room scale parameter (0.5–20 m)
+- [x] PanziEngine.h — full signal chain implemented
+- [x] All DSP headers: BakedCoefficients, DelayLine, SvfLowpass, RbjShelf, TopologyBaker, PolyhedralTopology
+- [ ] pluginval strictness-10 pass (requires local JUCE build)
+- [ ] REAPER 7.1 surround project smoke test
+- [ ] CPU profiling evidence (< 2% target)
+- [ ] Factory preset suite (8 presets)
+- [ ] Public binary release
 
-### v0.3.0 — 3D Source Trajectory
+### v0.3.0 — SIMD + 3D Source Trajectory
+- [ ] AVX2/SSE2 SoA vectorisation of N-channel gain matrix
 - [ ] Independent azimuth + elevation LFOs
 - [ ] DAW automation for source X/Y/Z
 
@@ -165,6 +172,21 @@ cmake --build build --config Release
 ## 📝 License
 
 GNU General Public License v3.0.
+
+## 🏷️ GitHub Setup
+
+After pushing, add these topics to the repo for discoverability:
+
+```
+audio-plugin  vst3  au  spatial-audio  juce  cpp  dsp  surround-sound  open-source  cpp17
+```
+
+Tag the FreeAutoPanner foundation release:
+
+```bash
+git tag -a v0.1.0 -m "FreeAutoPanner — stereo LFO auto-panner, proven DSP foundation"
+git push origin v0.1.0
+```
 
 ## 🙏 Acknowledgments
 
